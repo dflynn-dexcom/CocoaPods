@@ -53,12 +53,13 @@ module Pod
       def script
         script = <<-SH.strip_heredoc
 #{Pod::Generator::ScriptPhaseConstants::DEFAULT_SCRIPT_PHASE_HEADER}
+echo "CP TEST 1"
 if [ -z ${FRAMEWORKS_FOLDER_PATH+x} ]; then
   # If FRAMEWORKS_FOLDER_PATH is not set, then there's nowhere for us to copy
   # frameworks to, so exit 0 (signalling the script phase was successful).
   exit 0
 fi
-
+echo "CP TEST 2"
 echo "mkdir -p ${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
 
